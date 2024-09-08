@@ -1,0 +1,311 @@
+@model ProductViewModel
+@{
+  ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopper</title>
+  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+  <link rel="stylesheet" href="~/Shopper.styles.css" asp-append-version="true" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+  <header>
+    <section>
+
+      <div id="carouselExampleDark" class="carousel carousel-dark slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <img src="~/img/cover-24.jpg" class="d-block w-50" alt="...">
+            <div class="position-absolute text-content p-2">
+              <h4>2024 Summer Collection</h4>
+              <a class="btn btn-link stretched-link text-reset" href="shop.html">
+                View Collection <i class="fa-solid fa-arrow-right arrow-icon"></i>
+              </a>
+            </div>
+            <img src="~/img/cover-16.jpg" class="d-block small-image" alt="...">
+          </div>
+
+          <div class="carousel-item" data-bs-interval="10000">
+            <img src="~/img/cover-24.jpg" class="d-block w-50" alt="...">
+            <div class="position-absolute text-content p-2">
+              <h4>2024 Summer Collection</h4>
+              <a class="btn btn-link stretched-link text-reset" href="shop.html">
+                View Collection <i class="fa-solid fa-arrow-right arrow-icon"></i>
+              </a>
+            </div>
+            <img src="~/img/cover-29.jpg" class="d-block small-image" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="10000">
+            <img src="~/img/cover-24.jpg" class="d-block w-50" alt="...">
+            <div class="position-absolute text-content p-2">
+              <h4>2024 Summer Collection</h4>
+              <a class="btn btn-link stretched-link text-reset" href="shop.html">
+                View Collection <i class="fa-solid fa-arrow-right arrow-icon"></i>
+              </a>
+            </div>
+            <img src="~/img/cover-30.jpg" class="d-block small-image" alt="...">
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+
+    <hr class="custom-line">
+
+    <section class="pt-12">
+
+      <div class="container">
+        <div class="row align-items-stretch">
+          <div class="col-12 col-md-4 col-lg-3 d-flex">
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <p class="d-inline-flex gap-1">
+                  <a class="btn btn-link" data-bs-toggle="collapse" href="#collapseCategory" role="button"
+                    aria-expanded="false" aria-controls="collapseCategory" style="box-shadow: none; color: black;">
+                    Category
+                  </a>
+                </p>
+                <div class="collapse" id="collapseCategory">
+                  <ul class="list-group list-group-flush">
+                    @foreach (var ctg in Model.Categories)
+                    {
+                      <li class="list-group-item" style="border-bottom: none;">@ctg.Name</li>
+                    }
+                  </ul>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <p class="d-inline-flex gap-1">
+                  <a class="btn btn-link" data-bs-toggle="collapse" href="#collapseSize" role="button"
+                    aria-expanded="false" aria-controls="collapseSize" style="box-shadow: none; color: black;">
+                    Size
+                  </a>
+                </p>
+                <div class="collapse" id="collapseSize">
+                  <ul class="list-group list-group-flush">
+                    @{
+                      var uniqueSizes = new HashSet<string>();
+
+                      foreach (var product in Model.Products)
+                      {
+                        if (product.Size != null)
+                        {
+                          uniqueSizes.UnionWith(product.Size);
+                        }
+                      }
+                    }
+
+                    @foreach (var size in uniqueSizes)
+                    {
+                      <li class="list-group-item" style="border-bottom: none;">@size</li>
+                    }
+                  </ul>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <p class="d-inline-flex gap-1">
+                  <a class="btn btn-link" data-bs-toggle="collapse" href="#collapseColor" role="button"
+                    aria-expanded="false" aria-controls="collapseColor" style="box-shadow: none; color: black;">
+                    Color
+                  </a>
+                </p>
+                <div class="collapse" id="collapseColor">
+                  <ul class="list-group list-group-flush">
+                    @if (Model.Colors != null)
+                    {
+                      @foreach (var clr in Model.Colors)
+                      {
+                        <li class="list-group-item" style="border-bottom: none;">@clr.ColorName</li>
+                      }
+                    }
+                  </ul>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <p class="d-inline-flex gap-1">
+                  <a class="btn btn-link" data-bs-toggle="collapse" href="#collapsePrice" role="button"
+                    aria-expanded="false" aria-controls="collapsePrice" style="box-shadow: none; color: black;">
+                    Price
+                  </a>
+                </p>
+                <div class="collapse" id="collapsePrice">
+                  <ul class="list-group list-group-flush">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        $10 -$50
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                      <label class="form-check-label" for="flexCheckChecked">
+                        $51 -$100
+                      </label>
+                    </div>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+
+
+          </div>
+          <div class="col-12 col-md-8 col-lg-9 d-flex">
+
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="topSellersTab">
+                <div class="row">
+                  <div class="d-flex justify-content-between align-items-center">
+
+                    <h3 class="mb-4 mt-3">Womens' Clothing</h3>
+                    <div class="dropdown">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Dropdown button
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  @foreach (var prd in Model.Products)
+                  {
+                    <div class="col-12 col-md-6 col-lg-4">
+                      <div class="card no-border" style="width: 250px;">
+                        <img src="~/img/@prd.Image" class="card-img-top" alt="...">
+                        <div class="text-conten p-5 mt-5">
+                          <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal"
+                            data-bs-target="#modalProduct">
+                            <i class="fa-solid fa-eye icon-space"></i>
+                          </button>
+                          <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal"
+                            data-bs-target="#modalProduct">
+                            <i class="fa-solid fa-heart icon-space"></i>
+                          </button>
+                          <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal"
+                            data-bs-target="#modalProduct">
+                            <i class="fa-solid fa-cart-arrow-down icon-space"></i>
+                          </button>
+                        </div>
+                        <div class="card-body px-0">
+                          <div class="fs-xs">
+                            <a class="text-muted text-decoration-none" href="shop.html">@prd.Category?.Name</a>
+                          </div>
+                          <div class="fw-bold text">
+                            <a asp-controller="Home" asp-action="Details" asp-route-id="@prd.ProductId"
+                              class="text-decoration-none" style="color: rgb(82, 82, 82);">
+                              @* <a class="text-body text-decoration-none" href="product.html"> *@
+                              @prd.Name
+                            </a>
+                          </div>
+                          <div class="fw-bold text-muted">
+                            @prd.Price
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  }
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+    <br><br><br>
+    <section class="py-12">
+      <div class="container">
+        <h3 class="mb-4 text-center">Top Month Sellers</h3>
+        <div class="nav justify-content-center mb-5">
+          <a class="nav-link active" href="#topSellersTab" data-bs-toggle="tab">Women</a>
+          <a class="nav-link active" href="#topSellersTab" data-bs-toggle="tab">Men</a>
+          <a class="nav-link active" href="#topSellersTab" data-bs-toggle="tab">Kids</a>
+        </div>
+        <div class="container">
+          <h3>Products in
+            @if (!string.IsNullOrEmpty(Model.SelectedCategory))
+            {
+              var selectedCategory = Model.Categories.FirstOrDefault(c => c.CategoryId ==
+              int.Parse(Model.SelectedCategory));
+              if (selectedCategory != null)
+              {
+                @selectedCategory.Name
+              }
+              else
+              {
+                <span>Unknown Category</span>
+              }
+            }
+            else
+            {
+              <span>All Categories</span>
+            }
+          </h3>
+
+          <div class="row">
+            @foreach (var product in Model.Products)
+            {
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="card no-border" style="width: 250px;">
+                  <img src="~/img/@product.Image" class="card-img-top" alt="@product.Name">
+                  <div class="card-body px-0">
+                    <div class="fs-xs">
+                      <a class="text-muted text-decoration-none" href="#">@product.Category?.Name</a>
+                    </div>
+                    <div class="fw-bold text">
+                      <a asp-controller="Home" asp-action="Details" asp-route-id="@product.ProductId"
+                        class="text-decoration-none">
+                        @product.Name
+                      </a>
+                    </div>
+                    <div class="fw-bold text-muted">
+                      $@product.Price
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </header>
+  <div class="container">
+
+  </div>
+
+
+  <script src="~/lib/jquery/dist/jquery.min.js"></script>
+  <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="~/js/site.js" asp-append-version="true"></script>
+
+</body>
+
+</html>
