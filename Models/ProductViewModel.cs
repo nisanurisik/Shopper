@@ -8,5 +8,7 @@ namespace Shopper.Models
     public List<Color> Colors { get; set; } = null!;
 
     public string? SelectedCategory { get; set; }
+
+
   }
 }

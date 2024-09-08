@@ -213,8 +213,8 @@
                             <a class="text-muted text-decoration-none" href="shop.html">@prd.Category?.Name</a>
                           </div>
                           <div class="fw-bold text">
-                            <a asp-controller="Home" asp-action="Details" asp-route-id="@prd.ProductId"
-                              class="text-decoration-none" style="color: rgb(82, 82, 82);">
+                            <a href="/product/details/@prd.Url" class="text-decoration-none" class="text-decoration-none"
+                              style="color: rgb(82, 82, 82);">
                               @* <a class="text-body text-decoration-none" href="product.html"> *@
                               @prd.Name
                             </a>
@@ -238,64 +238,7 @@
         </div>
       </div>
     </section>
-    <br><br><br>
-    <section class="py-12">
-      <div class="container">
-        <h3 class="mb-4 text-center">Top Month Sellers</h3>
-        <div class="nav justify-content-center mb-5">
-          <a class="nav-link active" href="#topSellersTab" data-bs-toggle="tab">Women</a>
-          <a class="nav-link active" href="#topSellersTab" data-bs-toggle="tab">Men</a>
-          <a class="nav-link active" href="#topSellersTab" data-bs-toggle="tab">Kids</a>
-        </div>
-        <div class="container">
-          <h3>Products in
-            @if (!string.IsNullOrEmpty(Model.SelectedCategory))
-            {
-              var selectedCategory = Model.Categories.FirstOrDefault(c => c.CategoryId ==
-              int.Parse(Model.SelectedCategory));
-              if (selectedCategory != null)
-              {
-                @selectedCategory.Name
-              }
-              else
-              {
-                <span>Unknown Category</span>
-              }
-            }
-            else
-            {
-              <span>All Categories</span>
-            }
-          </h3>
 
-          <div class="row">
-            @foreach (var product in Model.Products)
-            {
-              <div class="col-12 col-md-6 col-lg-4">
-                <div class="card no-border" style="width: 250px;">
-                  <img src="~/img/@product.Image" class="card-img-top" alt="@product.Name">
-                  <div class="card-body px-0">
-                    <div class="fs-xs">
-                      <a class="text-muted text-decoration-none" href="#">@product.Category?.Name</a>
-                    </div>
-                    <div class="fw-bold text">
-                      <a asp-controller="Home" asp-action="Details" asp-route-id="@product.ProductId"
-                        class="text-decoration-none">
-                        @product.Name
-                      </a>
-                    </div>
-                    <div class="fw-bold text-muted">
-                      $@product.Price
-                    </div>
-                  </div>
-                </div>
-              </div>
-            }
-          </div>
-        </div>
-      </div>
-
-    </section>
   </header>
   <div class="container">
 

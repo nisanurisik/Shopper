@@ -21,6 +21,7 @@ namespace Shopper.Models
     public bool Stok { get; set; }
 
     public int? ColorId { get; set; }
+    public string? Url { get; set; }
     public Color? Color { get; set; }
     public Category? Category { get; set; }
     public List<Category> Categories { get; set; } = new List<Category>();

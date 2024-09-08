@@ -187,9 +187,9 @@
                                                     href="shop.html">@prd.Category?.Name</a>
                                             </div>
                                             <div class="fw-bold text">
-                                                <a asp-controller="Home" asp-action="Details" asp-route-id="@prd.ProductId"
-                                                    class="text-decoration-none" style="color: rgb(82, 82, 82);">
-                                                    @* <a class="text-body text-decoration-none" href="product.html"> *@
+                                                <a href="/product/details/@prd.Url" class="text-decoration-none"
+                                                    style="color: rgb(82, 82, 82);">
+
                                                     @prd.Name
                                                 </a>
                                             </div>

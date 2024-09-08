@@ -21,19 +21,18 @@ public class HomeController : Controller
             Categories = Repository.Categories,
             SelectedCategory = category
         };
-        // ViewBag.Categories = new SelectList(Repository.Categories, "CategoryId", "Name", category);
+
         return View(model);
     }
 
-    public IActionResult Details(int? id)
+    public IActionResult Details(string? url)
     {
-        if (id == null)
+        if (url == null)
         {
             return RedirectToAction("Index", "Home");
         }
-        var bootcamp = Repository.GetById(id);
+        var product = Repository.GetById(url);
 
-        return View(bootcamp);
+        return View(product);
     }
 }
-
