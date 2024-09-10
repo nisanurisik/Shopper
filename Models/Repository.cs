@@ -19,7 +19,7 @@ namespace Shopper.Models
       {
         ProductId = 1,
         Name = "Leather mid-heel Sandals",
-        Description = "Güzel Ayakkabı",
+        Description = "Won't herb first male seas, beast. Let upon, female upon third fifth every. Man subdue rule after years herb after form. And image may, morning. Behold in tree day sea that together cattle whose. Fifth gathering brought bearing. Abundantly creeping whose. Beginning form have void two. A whose.",
         Price = "$50",
         Image = "product-5.jpg",
         CategoryId = 1,
@@ -35,7 +35,7 @@ namespace Shopper.Models
       {
         ProductId = 2,
         Name = "Sneakers",
-        Description = "Rahat ve şık",
+        Description = "Won't herb first male seas, beast. Let upon, female upon third fifth every. Man subdue rule after years herb after form. And image may, morning. Behold in tree day sea that together cattle whose. Fifth gathering brought bearing. Abundantly creeping whose. Beginning form have void two. A whose.",
         Price = "$80",
         Image = "product-5.jpg",
         CategoryId = 1,
@@ -51,7 +51,7 @@ namespace Shopper.Models
       {
         ProductId = 3,
         Name = "Sandalet",
-        Description = "Rahat ve şık",
+        Description = "Won't herb first male seas, beast. Let upon, female upon third fifth every. Man subdue rule after years herb after form. And image may, morning. Behold in tree day sea that together cattle whose. Fifth gathering brought bearing. Abundantly creeping whose. Beginning form have void two. A whose.",
         Price = "$80",
         Image = "product-5.jpg",
         CategoryId = 2,
@@ -67,7 +67,7 @@ namespace Shopper.Models
       {
         ProductId = 4,
         Name = "Dress",
-        Description = "Rahat ve şık",
+        Description = "Won't herb first male seas, beast. Let upon, female upon third fifth every. Man subdue rule after years herb after form. And image may, morning. Behold in tree day sea that together cattle whose. Fifth gathering brought bearing. Abundantly creeping whose. Beginning form have void two. A whose.",
         Price = "$80",
         Image = "product-6.jpg",
         CategoryId = 2,
@@ -83,7 +83,7 @@ namespace Shopper.Models
       {
         ProductId = 5,
         Name = "White Shoes",
-        Description = "Rahat ve şık",
+        Description = "Won't herb first male seas, beast. Let upon, female upon third fifth every. Man subdue rule after years herb after form. And image may, morning. Behold in tree day sea that together cattle whose. Fifth gathering brought bearing. Abundantly creeping whose. Beginning form have void two. A whose.",
         Price = "$80",
         Image = "product-7.jpg",
         CategoryId = 1,
@@ -99,7 +99,7 @@ namespace Shopper.Models
       {
         ProductId = 6,
         Name = "Blous",
-        Description = "Rahat ve şık",
+        Description = "Won't herb first male seas, beast. Let upon, female upon third fifth every. Man subdue rule after years herb after form. And image may, morning. Behold in tree day sea that together cattle whose. Fifth gathering brought bearing. Abundantly creeping whose. Beginning form have void two. A whose.",
         Price = "$80",
         Image = "product-8.jpg",
         CategoryId = 1,

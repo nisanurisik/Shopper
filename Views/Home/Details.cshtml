@@ -1,4 +1,4 @@
-﻿@model Product
+﻿@model ProductViewModel
 @{
     Layout = "_Layout";
 }
@@ -18,62 +18,70 @@
 <body>
     <section>
 
-        <div class="card mb-3" id="@Model.ProductId">
+        <div class="card mb-3" id="@Model.Product?.ProductId">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/img/@Model.Image" alt="Ürün Resmi" style="width: 538px; height: 600px;"
-                        class="img-fluid-details">
+                    <img src="/img/@Model.Product.Image" alt="Ürün Resmi" style="width: 538px; height: 600px;" class="img-fluid-details">
                 </div>
                 <div class="col-md-8 mt-3">
                     <div class="card-body" style="margin-left: 180px;">
                         <div class="fs-xs">
-                            <a class="text-muted text-decoration-none" href="shop.html">@Model.Category?.Name</a>
+                            <a class="text-muted text-decoration-none" href="shop.html">@Model.Product.Category?.Name</a>
                         </div>
                         <div class="fw-bold text">
-                            <a asp-controller="Home" asp-action="Details" asp-route-id="@Model.ProductId"
+                            <a asp-controller="Home" asp-action="Details" asp-route-id="@Model.Product.ProductId"
                                 class="text-decoration-none">
-                                <h2 class="card-title">@Model.Name</h2>
+                                <h2 class="card-title">@Model.Product.Name</h2>
                             </a>
                         </div>
-                        <p class="card-text">@Model.Description</p>
+                       
                         <div class="fs-xs">
                             <p class="card-text">
-                                @Model.Price
-                                @if (Model.Stok == false)
-                                {
-                                    <span class="text-danger">(Out Of Stock)</span>
-                                }
-                                else
-                                {
-                                    <span class="text-success">(In Stock)</span>
-                                }
+                                @Model.Product.Price
+                                @(Model.Product.Stok 
+                                    ? Html.Raw("<span class='text-success'>(In Stock)</span>") 
+                                    : Html.Raw("<span class='text-danger'>(Out Of Stock)</span>"))
                             </p>
                         </div>
+                        <div class="fs-xs mt-4">
+                            <small>Color: <strong>@Model.Product.Color?.ColorName</strong></small>
+                        </div>
 
-
-
-                        @if (Model.Size != null)
+                        @if (Model.Product.Size != null)
                         {
-                            <p class="mt-3" style="font-family: Jost*500 Medium; font-size: 16px; font-weight: 400;">Size:
-                                <span style="font-weight: 500;" id="selectedSize"></span>
+                            <p class="mt-4" style="font-family: Jost*500 Medium; font-size: 16px; font-weight: 400;">
+                                Size: <span style="font-weight: 500;" id="selectedSize"></span>
                             </p>
 
-                            @for (int i = 0; i < Model.Size.Length; i++)
+                            @for (int i = 0; i < Model.Product.Size.Length; i++)
                             {
-                                <div class="form-check form-check-inline"
-                                    style="font-family: Jost*500 Medium; font-size: 16px; font-weight: 400;">
+                                <div class="form-check form-check-inline p-0" style="font-family: Jost*500 Medium; font-size: 16px; font-weight: 400;">
                                     <input class="form-check-input custom-checkbox" type="checkbox" id="inlineCheckbox@(i + 1)"
-                                        value="@Model.Size[i]" data-label="@Model.Size[i]" onclick="updateSelectedSize(this)"
-                                    @(Model.Stok ? "" : "disabled") />
-                                    <label
-                                        class="form-check-label custom-label @(Model.Stok ? "" : "text-decoration-line-through")"
+                                        value="@Model.Product.Size[i]" data-label="@Model.Product.Size[i]" onclick="updateSelectedSize(this)"
+                                        @(Model.Product.Stok ? "" : "disabled") />
+                                    <label class="form-check-label custom-label @(Model.Product.Stok ? "" : "text-decoration-line-through")"
                                         for="inlineCheckbox@(i + 1)">
-                                        @Model.Size[i]
+                                        @Model.Product.Size[i]
                                     </label>
                                 </div>
                             }
                         }
 
+                        
+                  
+                    <div class="d-flex mt-4">
+                        <div class="me-3">
+                            <select class="form-select" aria-label="Default select example" name="" id="">
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                       
+                    
+                </div>
                     </div>
                 </div>
             </div>
@@ -82,12 +90,11 @@
     </section>
 
     <section>
-        <div class="custom-container text-center">
+        @* <div class="custom-container text-center">
             <div class="row align-items-start">
 
                 <div class="col custom-tab-column">
-                    <button class="custom-tab-button active-custom-tab  border-bottom"
-                        onclick="showCustomTab(this, 'descriptionCustomContent')">
+                    <button class="custom-tab-button active-custom-tab border-bottom" onclick="showCustomTab(this, 'descriptionCustomContent')">
                         Description
                     </button>
                     <div id="descriptionCustomContent" class="custom-tab-content active-custom-content">
@@ -96,8 +103,7 @@
                 </div>
 
                 <div class="col custom-tab-column">
-                    <button class="custom-tab-button  border-bottom"
-                        onclick="showCustomTab(this, 'sizeFitCustomContent')">
+                    <button class="custom-tab-button border-bottom" onclick="showCustomTab(this, 'sizeFitCustomContent')">
                         Size & Fit
                     </button>
                     <div id="sizeFitCustomContent" class="custom-tab-content">
@@ -106,8 +112,7 @@
                 </div>
 
                 <div class="col custom-tab-column">
-                    <button class="custom-tab-button  border-bottom"
-                        onclick="showCustomTab(this, 'shippingReturnCustomContent')">
+                    <button class="custom-tab-button border-bottom" onclick="showCustomTab(this, 'shippingReturnCustomContent')">
                         Shipping & Return
                     </button>
                     <div id="shippingReturnCustomContent" class="custom-tab-content">
@@ -115,7 +120,104 @@
                     </div>
                 </div>
             </div>
+        </div> *@
+
+
+<div class="row">
+        <div class="col-lg-12">
+            <div class="border-bottom ">
+                <ul class="nav nav-pills nav-lb-tab d-flex justify-content-center" id="pills-tab" role="tablist">
+                    <li class="nav-item me-4" role="presentation">
+                        <button class="nav-link active" id="product-dateils-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-product-dateils" type="button" role="tab"
+                            aria-controls="pills-product-dateils" aria-selected="true">Product Details</button>
+                    </li>
+                    <li class="nav-item me-4" role="presentation">
+                        <button class="nav-link" id="information-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-information" type="button" role="tab"
+                            aria-controls="pills-information" aria-selected="false">Information</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="return-conditions-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-return-conditions" type="button" role="tab"
+                            aria-controls="pills-return-conditions" aria-selected="false">Return Conditions</button>
+                    </li>
+                </ul>
+            </div>
+           <div class="tab-content mt-5 text-center" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-product-dateils" role="tabpanel"
+        aria-labelledby="product-dateils-tab">
+        
+        <p class="text-muted text-start">
+            @Model.Product.Description
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="tab-pane fade" id="pills-information" role="tabpanel" aria-labelledby="information-tab">
+        <h5 class="fw-bold text-start">
+            Business Registration No.
+        </h5>
+        <p class="text-muted text-start">
+            TR14-0021
+        </p>
+
+        <h5 class="fw-bold text-start">
+            Origin
+        </h5>
+        <p class="text-muted text-start">
+            TÜRKİYE
+        </p>
+
+        <h5 class="fw-bold text-start">
+            Table of Contents
+        </h5>
+        <p class="text-muted text-start">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+
+        <h5 class="fw-bold text-start">
+            Food Operator / Manufacturer / Importer / Distributor
+        </h5>
+        <p class="text-muted text-start">
+            Food Operator / Manufacturer / Importer / Distributor
+        </p>
+
+        <h5 class="fw-bold text-start">
+            Food Operator / Manufacturer / Importer / Distributor Number
+        </h5>
+        <p class="text-muted text-start">
+            031364
+        </p>
+    </div>
+
+    <div class="tab-pane fade" id="pills-return-conditions" role="tabpanel"
+        aria-labelledby="return-conditions-tab">
+        <h5 class="fw-bold text-start">How Can I Start the Return Process?</h5>
+        <p class="text-muted text-start">Lorem ipsum dolor sit amet consectetur,</p>
+
+        <h5 class="fw-bold text-start">Return Policy:</h5>
+        <p class="text-muted text-start">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim et soluta reiciendis accusantium </p>
+        <p class="text-muted text-start">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, autem vel. Repellendus ea veniam</p>
+        <p class="text-muted text-start">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod eaque sit repellendus accusamus quos, earum optio saepe, laudantium exercitationem aliquid ut. Dolor perferendis a quo autem sed iure provident exercitationem.</p>
+        <p class="text-muted text-start">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod eaque sit repellendus accusamus quos, earum optio saepe, laudantium exercitationem aliquid ut. Dolor perferendis a quo autem sed iure provident exercitationem. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod eaque sit repellendus accusamus quos, earum optio saepe, laudantium exercitationem aliquid ut. Dolor perferendis a quo autem sed iure provident exercitationem.
+        </p>
+
+        <h5 class="fw-bold text-start">Situations where the Right of Withdrawal is not Valid</h5>
+        <ul class="text-start">
+            <li class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor omnis incidunt est corporis quod laborum perspiciatis labore minima fugit, aperiam soluta ab accusantium repudiandae odit commodi praesentium, qui inventore! Cumque? </li>
+            <li class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor omnis incidunt est corporis quod laborum perspiciatis labore minima fugit, aperiam soluta ab accusantium repudiandae odit commodi praesentium, qui inventore! Cumque? </li>
+            <li class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor omnis incidunt est corporis quod laborum perspiciatis labore minima fugit, aperiam soluta ab accusantium repudiandae odit commodi praesentium, qui inventore! Cumque? </li>
+            <li class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor omnis incidunt est corporis quod laborum perspiciatis labore minima fugit, aperiam soluta ab accusantium repudiandae odit commodi praesentium, qui inventore! Cumque? </li>
+        </ul>
+    </div>
+</div>
+
         </div>
+    </div>
     </section>
 
     <script>
@@ -133,11 +235,8 @@
             }
             document.getElementById('selectedSize').textContent = selectedCheckbox.value;
         }
-    </script>
 
-    <script>
         function showCustomTab(buttonElement, contentId) {
-
             var allContents = document.getElementsByClassName('custom-tab-content');
             for (var i = 0; i < allContents.length; i++) {
                 allContents[i].classList.remove('active-custom-content');
@@ -151,15 +250,13 @@
             document.getElementById(contentId).classList.add('active-custom-content');
             buttonElement.classList.add('active-custom-tab');
         }
-
-
     </script>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>

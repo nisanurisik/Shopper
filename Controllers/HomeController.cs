@@ -32,7 +32,10 @@ public class HomeController : Controller
             return RedirectToAction("Index", "Home");
         }
         var product = Repository.GetById(url);
-
-        return View(product);
+var model = new ProductViewModel{
+    Categories = Repository.Categories,
+    Product = product
+};
+        return View(model);
     }
 }

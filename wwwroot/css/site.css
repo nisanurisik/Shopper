@@ -406,10 +406,6 @@ body {
   border-color: black;
 }
 
-.form-check{
-  margin-left: -20px;
-}
-
 .small-image {
   width: 50%; 
   position: absolute; 
@@ -417,3 +413,38 @@ body {
   right: 0;
   z-index: 1; 
 }
+
+.form-select {
+  padding: 7px 40px 7px 15px;
+  border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  -ms-border-radius: 0 !important;
+  -o-border-radius: 0 !important;
+}
+
+.form-select:focus {
+  padding: 7px 40px 7px 15px;
+  border-color: black;
+  box-shadow: none;
+  border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  -ms-border-radius: 0 !important;
+  -o-border-radius: 0 !important;
+}
+
+.nav-lb-tab .nav-item .nav-link{
+  border-radius:0;
+  color: gray;
+  margin-bottom: -1px;
+  padding:16px 0;
+}
+
+.nav-lb-tab .nav-item .nav-link.active, 
+.nav-lb-tab .nav-item .nav-link:hover{
+  background-color:transparent;
+  border-bottom:2px solid #ff4500;
+  color:#ff4500;
+}
+
