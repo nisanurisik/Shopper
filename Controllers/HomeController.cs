@@ -7,20 +7,13 @@ namespace Shopper.Controllers;
 public class HomeController : Controller
 {
 
-    public IActionResult Index(string category)
+    public IActionResult Index()
     {
-        var products = Repository.Products;
-        if (!String.IsNullOrEmpty(category) && category != "0")
-        {
-            products = products.Where(p => p.CategoryId == int.Parse(category)).ToList();
-        }
-
         var model = new ProductViewModel
         {
-            Products = products,
-            Categories = Repository.Categories,
-            SelectedCategory = category
+            Categories = Repository.Categories
         };
+
 
         return View(model);
     }
@@ -32,10 +25,11 @@ public class HomeController : Controller
             return RedirectToAction("Index", "Home");
         }
         var product = Repository.GetById(url);
-var model = new ProductViewModel{
-    Categories = Repository.Categories,
-    Product = product
-};
+        var model = new ProductViewModel
+        {
+            Categories = Repository.Categories,
+            Product = product
+        };
         return View(model);
     }
 }

@@ -1,0 +1,54 @@
+@model List<Product>
+<div class="container">
+  <h3 class="mb-4 text-center">Top Month Sellers</h3>
+  <div class="nav justify-content-center mb-5">
+    <a class="nav-link active" href="#topSellersTab" data-bs-toggle="tab">Women</a>
+    <a class="nav-link active" href="#topSellersTab" data-bs-toggle="tab">Men</a>
+    <a class="nav-link active" href="#topSellersTab" data-bs-toggle="tab">Kids</a>
+  </div>
+  <div class="tab-content mt-5">
+    <div class="tab-pane fade show active" id="topSellersTab">
+      <div class="row">
+        @foreach (var prd in Model)
+        {
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card no-border" style="width: 250px;">
+              <img src="~/img/@prd.Image" class="card-img-top" alt="...">
+              <div class="text-conten p-5 mt-5">
+                <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal"
+                  data-bs-target="#modalProduct">
+                  <i class="fa-solid fa-eye icon-space"></i>
+                </button>
+                <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal"
+                  data-bs-target="#modalProduct">
+                  <i class="fa-solid fa-heart icon-space"></i>
+                </button>
+                <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal"
+                  data-bs-target="#modalProduct">
+                  <i class="fa-solid fa-cart-arrow-down icon-space"></i>
+                </button>
+              </div>
+              <div class="card-body px-0">
+                <div class="fs-xs">
+                  <a class="text-muted text-decoration-none" href="shop.html">@prd.Category?.Name</a>
+                </div>
+                <div class="fw-bold text">
+                  <a href="/product/details/@prd.Url" class="text-decoration-none" style="color: rgb(82, 82, 82);">
+
+                    @prd.Name
+                  </a>
+                </div>
+                <div class="fw-bold text-muted">
+                  @prd.Price
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        }
+      </div>
+
+    </div>
+  </div>
+</div>
