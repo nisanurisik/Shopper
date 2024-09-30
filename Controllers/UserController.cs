@@ -55,5 +55,16 @@ namespace Shopper.Controllers
 
       return View(model);
     }
+
+    public IActionResult Login()
+    {
+      var model = new ProductViewModel
+      {
+        Products = Repository.Products,
+        Categories = Repository.Categories
+      };
+
+      return View(model);
+    }
   }
 }
