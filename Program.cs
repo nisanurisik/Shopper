@@ -36,6 +36,11 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.MapControllerRoute(
+    name: "basket_List",
+    pattern: "home/basket",
+    defaults: new { controller = "Home", action = "Basket" }
+    );
 
 
 app.Run();

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/xSkZTRMJqnadOp5dvqrrhtVq/0DkaEZK6+lxuHW200=",
+  "Hash": "0+HsdfNBOhr32rFUCMvb6S/5nsdSEi6nxGw4ZmznQps=",
   "Source": "Shopper",
   "BasePath": "_content/Shopper",
   "Mode": "Default",
@@ -457,6 +457,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\product-8.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\dell\\Desktop\\Projeler\\Shopper\\wwwroot\\img\\SINAV GİRİŞ BELGESİ .pdf",
+      "SourceId": "Shopper",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dell\\Desktop\\Projeler\\Shopper\\wwwroot\\",
+      "BasePath": "_content/Shopper",
+      "RelativePath": "img/SINAV GİRİŞ BELGESİ .pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\SINAV GİRİŞ BELGESİ .pdf"
     },
     {
       "Identity": "C:\\Users\\dell\\Desktop\\Projeler\\Shopper\\wwwroot\\img\\visa.svg",

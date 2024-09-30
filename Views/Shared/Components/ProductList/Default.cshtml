@@ -30,7 +30,8 @@
               </div>
               <div class="card-body px-0">
                 <div class="fs-xs">
-                  <a class="text-muted text-decoration-none" href="shop.html">@prd.Category?.Name</a>
+                  <a class="text-muted text-decoration-none"
+                    href="/category/list/@prd.Category?.Url">@prd.Category?.Name</a>
                 </div>
                 <div class="fw-bold text">
                   <a href="/product/details/@prd.Url" class="text-decoration-none" style="color: rgb(82, 82, 82);">
@@ -39,7 +40,7 @@
                   </a>
                 </div>
                 <div class="fw-bold text-muted">
-                  @prd.Price
+                  $@prd.Price
                 </div>
               </div>
             </div>

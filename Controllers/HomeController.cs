@@ -28,8 +28,19 @@ public class HomeController : Controller
         var model = new ProductViewModel
         {
             Categories = Repository.Categories,
-            Product = product
+            Product = product,
+            Products = Repository.Products
         };
         return View(model);
     }
+    public IActionResult Basket()
+    {
+        var model = new ProductViewModel
+        {
+            Categories = Repository.Categories,
+            Products = Repository.Products
+        };
+        return View(model);
+    }
+
 }

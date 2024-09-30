@@ -75,100 +75,143 @@
 
       <div class="container">
         <div class="row align-items-stretch">
-          <div class="col-12 col-md-4 col-lg-3 d-flex">
+          <div class="col-12 col-md-4 col-lg-3 d-flex mt-5">
 
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <p class="d-inline-flex gap-1">
-                  <a class="btn btn-link" data-bs-toggle="collapse" href="#collapseCategory" role="button"
-                    aria-expanded="false" aria-controls="collapseCategory" style="box-shadow: none; color: black;">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                     Category
-                  </a>
-                </p>
-                <div class="collapse" id="collapseCategory">
-                  <ul class="list-group list-group-flush">
-                    @foreach (var ctg in Model.Categories)
-                    {
-                      <li class="list-group-item" style="border-bottom: none;">@ctg.Name</li>
-                    }
-                  </ul>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <p class="d-inline-flex gap-1">
-                  <a class="btn btn-link" data-bs-toggle="collapse" href="#collapseSize" role="button"
-                    aria-expanded="false" aria-controls="collapseSize" style="box-shadow: none; color: black;">
-                    Size
-                  </a>
-                </p>
-                <div class="collapse" id="collapseSize">
-                  <ul class="list-group list-group-flush">
-                    @{
-                      var uniqueSizes = new HashSet<string>();
-
-                      foreach (var product in Model.Products)
+                  </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <ul class="list-group list-group-flush">
+                      @foreach (var ctg in Model.Categories)
                       {
-                        if (product.Size != null)
+                        <a href="/category/list/@ctg.Url" class="list-group-item list-group-item-action"
+                          style="border-bottom: none; padding-left: 0;">@ctg.Name</a>
+                      }
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    Size
+                  </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+
+                    <ul class="list-group list-group-flush">
+                      @{
+                        var uniqueSizes = new HashSet<string>();
+
+                        foreach (var product in Model.Products)
                         {
-                          uniqueSizes.UnionWith(product.Size);
+                          if (product.Size != null)
+                          {
+                            uniqueSizes.UnionWith(product.Size);
+                          }
                         }
                       }
-                    }
-
-                    @foreach (var size in uniqueSizes)
-                    {
-                      <li class="list-group-item" style="border-bottom: none;">@size</li>
-                    }
-                  </ul>
-                </div>
-              </li>
-              <li class="list-group-item">
-                <p class="d-inline-flex gap-1">
-                  <a class="btn btn-link" data-bs-toggle="collapse" href="#collapseColor" role="button"
-                    aria-expanded="false" aria-controls="collapseColor" style="box-shadow: none; color: black;">
-                    Color
-                  </a>
-                </p>
-                <div class="collapse" id="collapseColor">
-                  <ul class="list-group list-group-flush">
-                    @if (Model.Colors != null)
-                    {
-                      @foreach (var clr in Model.Colors)
+                      @foreach (var size in uniqueSizes)
                       {
-                        <li class="list-group-item" style="border-bottom: none;">@clr.ColorName</li>
+                        <li class="list-group-item" style="border-bottom: none; padding-left: 0;">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+                              style="border-radius: 0;">
+                            <label class="form-check-label" for="flexCheckDefault">
+                              @size
+                            </label>
+                          </div>
+
+                        </li>
                       }
-                    }
-                  </ul>
+                    </ul>
+                  </div>
                 </div>
-              </li>
-              <li class="list-group-item">
-                <p class="d-inline-flex gap-1">
-                  <a class="btn btn-link" data-bs-toggle="collapse" href="#collapsePrice" role="button"
-                    aria-expanded="false" aria-controls="collapsePrice" style="box-shadow: none; color: black;">
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    Color
+                  </button>
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse"
+                  data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <ul class="list-group list-group-flush">
+                      @if (Model.Colors != null)
+                      {
+                        @foreach (var clr in Model.Colors)
+                        {
+                          <li class="list-group-item" style="border-bottom: none; padding-left: 0px;">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+                                style="border-radius: 0;">
+                              <label class="form-check-label" for="flexCheckDefault">
+                                @clr.ColorName
+                              </label>
+                            </div>
+
+                          </li>
+                        }
+                      }
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed border-bottom" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
                     Price
-                  </a>
-                </p>
-                <div class="collapse" id="collapsePrice">
-                  <ul class="list-group list-group-flush">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                      <label class="form-check-label" for="flexCheckDefault">
-                        $10 -$50
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                      <label class="form-check-label" for="flexCheckChecked">
-                        $51 -$100
-                      </label>
-                    </div>
-                  </ul>
+                  </button>
+                </h2>
+                <div id="flush-collapseFour" class="accordion-collapse collapse"
+                  data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <ul class="list-group list-group-flush">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+                          style="border-radius: 0;">
+                        @{
+                          var maxPrice = Model.Products
+                          .Where(p => p.Price < 80)
+                          .OrderByDescending(p => p.Price)
+                          .FirstOrDefault()?.Price ?? 0; // En yüksek fiyatı bulma
+                        }
+                        <label class="form-check-label" for="flexCheckDefault">
+                          $0 - $@maxPrice
+                        </label>
+
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                          style="border-radius: 0;">
+                        @{
+                          var maxxPrice = Model.Products
+                          .Where(p => p.Price < 100)
+                          .OrderByDescending(p => p.Price)
+                          .FirstOrDefault()?.Price ?? 0; // En yüksek fiyatı bulma
+                        }
+                        <label class="form-check-label" for="flexCheckChecked">
+                          $71 -$@maxxPrice
+                        </label>
+                      </div>
+                    </ul>
+                  </div>
                 </div>
-              </li>
-            </ul>
-
-
+              </div>
+            </div>
           </div>
+
           <div class="col-12 col-md-8 col-lg-9 d-flex">
 
             <div class="tab-content">
@@ -179,13 +222,14 @@
                     <h3 class="mb-4 mt-3">Womens' Clothing</h3>
                     <div class="dropdown">
                       <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Dropdown button
+                        aria-expanded="false"
+                        style="background-color: white !important; color: black; font-size: 14px; font-weight: 400;">
+                        Sort By
                       </button>
                       <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="#" id="sort-recommended">Recommended</a></li>
+                        <li><a class="dropdown-item" id="sort-asc">Price Increasing</a></li>
+                        <li><a class="dropdown-item" id="sort-desc">Price Decreasing</a></li>
                       </ul>
                     </div>
                   </div>
@@ -210,7 +254,8 @@
                         </div>
                         <div class="card-body px-0">
                           <div class="fs-xs">
-                            <a class="text-muted text-decoration-none" href="shop.html">@prd.Category?.Name</a>
+                            <a class="text-muted text-decoration-none"
+                              href="/category/list/@prd.Category?.Url">@prd.Category?.Name</a>
                           </div>
                           <div class="fw-bold text">
                             <a href="/product/details/@prd.Url" class="text-decoration-none" class="text-decoration-none"
@@ -220,7 +265,7 @@
                             </a>
                           </div>
                           <div class="fw-bold text-muted">
-                            @prd.Price
+                            $@prd.Price
                           </div>
                         </div>
                       </div>
@@ -237,6 +282,23 @@
 
         </div>
       </div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination d-flex justify-content-end me-5">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </section>
 
   </header>
@@ -248,6 +310,8 @@
   <script src="~/lib/jquery/dist/jquery.min.js"></script>
   <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="~/js/site.js" asp-append-version="true"></script>
+
+
 
 </body>
 

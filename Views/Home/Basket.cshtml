@@ -1,0 +1,305 @@
+@model ProductViewModel
+
+<div class="container">
+  <h3 class="text-center mt-5">Shopping Cart</h3>
+  <div class="row my-5">
+    <div class="col-lg-8">
+      <ul class="list-group list-group-flush pe-5 ">
+        <li class="list-group-item border-top pt-4">
+          <div class="row align-items-center mb-4">
+            <div class="col-3">
+
+              <!-- Image -->
+              <a href="product.html">
+                <img src="/img/product-6.jpg" alt="Ürün Resmi" style="height: auto; max-width: 100%;">
+              </a>
+
+            </div>
+            <div class="col">
+
+              <!-- Title -->
+              <div class="d-flex mb-2 fw-bold">
+                <a class="text-body text-decoration-none" href="product.html" style="font-size: 14px;">Cotton floral
+                  print</a> <span class="ms-auto" style="font-size: 14px;">$40.00</span>
+              </div>
+
+              <!-- Text -->
+              <p class="mb-7 fs-sm text-muted">
+                Size: M <br>
+                Color: Red
+              </p>
+
+              <!--Footer -->
+              <div class="d-flex align-items-center">
+
+                <!-- Select -->
+                <select class="form-select form-select-xxs w-auto">
+                  <option value="1">1</option>
+                  <option value="1">2</option>
+                  <option value="1">3</option>
+                </select>
+
+                <!-- Remove -->
+                <a class="fs-xs text-gray-400 ms-auto" href="#!">
+                  <i class="fa-solid fa-trash-can" style="color: #909090;"></i>
+                </a>
+
+              </div>
+
+            </div>
+          </div>
+
+        </li>
+        <li class="list-group-item">
+          <div class="row align-items-center mb-4 mt-4">
+            <div class="col-3">
+
+              <!-- Image -->
+              <a href="product.html">
+                <img src="/img/product-6.jpg" alt="Ürün Resmi" style="height: auto; max-width: 100%;">
+              </a>
+
+            </div>
+            <div class="col">
+
+              <!-- Title -->
+              <div class="d-flex mb-2 fw-bold">
+                <a class="text-body text-decoration-none" href="product.html" style="font-size: 14px;">Cotton floral
+                  print</a> <span class="ms-auto" style="font-size: 14px;">$40.00</span>
+              </div>
+
+              <!-- Text -->
+              <p class="mb-7 fs-sm text-muted">
+                Size: M <br>
+                Color: Red
+              </p>
+
+              <!--Footer -->
+              <div class="d-flex align-items-center">
+
+                <!-- Select -->
+                <select class="form-select form-select-xxs w-auto">
+                  <option value="1">1</option>
+                  <option value="1">2</option>
+                  <option value="1">3</option>
+                </select>
+
+                <!-- Remove -->
+                <a class="fs-xs text-gray-400 ms-auto" href="#!">
+                  <i class="fa-solid fa-trash-can" style="color: #909090;"></i>
+                </a>
+
+              </div>
+
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row align-items-center mb-4 mt-4 border-bottom pb-4">
+            <div class="col-3">
+
+              <!-- Image -->
+              <a href="product.html">
+                <img src="/img/product-6.jpg" alt="Ürün Resmi" style="height: auto; max-width: 100%;">
+              </a>
+
+            </div>
+            <div class="col">
+
+              <!-- Title -->
+              <div class="d-flex mb-2 fw-bold">
+                <a class="text-body text-decoration-none" href="product.html" style="font-size: 14px;">Cotton floral
+                  print</a> <span class="ms-auto" style="font-size: 14px;">$40.00</span>
+              </div>
+
+              <!-- Text -->
+              <p class="mb-7 fs-sm text-muted">
+                Size: M <br>
+                Color: Red
+              </p>
+
+              <!--Footer -->
+              <div class="d-flex align-items-center">
+
+                <!-- Select -->
+                <select class="form-select form-select-xxs w-auto">
+                  <option value="1">1</option>
+                  <option value="1">2</option>
+                  <option value="1">3</option>
+                </select>
+
+                <!-- Remove -->
+                <a class="fs-xs text-gray-400 ms-auto" href="#!">
+                  <i class="fa-solid fa-trash-can" style="color: #909090;"></i>
+                </a>
+
+              </div>
+
+            </div>
+          </div>
+        </li>
+
+      </ul>
+
+    </div>
+    <div class="col-lg-4">
+
+      <div class="card-body bg-light">
+        <!-- Subtotal -->
+        <div class="border-bottom py-3">
+          <div class="d-flex justify-content-between">
+            <span class="text-muted">Subtotal</span>
+            <span>$77.00</span>
+          </div>
+        </div>
+        <!-- Subtotal -->
+        <div class="border-bottom py-3">
+          <div class="d-flex justify-content-between">
+            <span class="text-muted">Tax</span>
+            <span>$77.00</span>
+          </div>
+        </div>
+        <!-- Subtotal -->
+        <div class="border-bottom py-3">
+          <div class="d-flex justify-content-between">
+            <span>Total</span>
+            <span>$77.00</span>
+          </div>
+        </div>
+
+        <!-- Subtotal -->
+        <div class="d-flex justify-content-center py-3">
+          <span class="text-muted">Shipping cost calculated at Checkout *</span>
+        </div>
+
+
+
+      </div>
+      <!-- Button -->
+      <div class="my-3">
+        <button class="btn btn-dark rounded w-100 py-2 rounded-0" type="submit">Proceed to Checkout</button>
+      </div>
+
+      <a href="/Home/Index" class="shop-button-left text-decoration-none text-dark">
+        <small>
+          <i class="fa-solid fa-arrow-left arrow-icon me-2"></i>
+          Continue Shopping
+        </small>
+
+
+      </a>
+    </div>
+
+  </div>
+
+</div>
+<section class="bg-light py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-3">
+
+        <!-- Item -->
+        <div class="d-flex mb-6 mb-lg-0">
+
+          <!-- Icon -->
+          <i class="fa-solid fa-truck mt-2 pe-4" style=" color:rgb(255, 111, 97);"></i>
+
+          <!-- Body -->
+          <div class="ms-6">
+
+            <!-- Heading -->
+            <h6 class="heading-xxs mb-1">
+              Free shipping
+            </h6>
+
+            <!-- Text -->
+            <p class="mb-0 fs-sm text-muted">
+              From all orders over $100
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+
+        <!-- Item -->
+        <div class="d-flex mb-6 mb-lg-0">
+
+          <!-- Icon -->
+          <i class="fa-solid fa-repeat mt-2 pe-4" style=" color:rgb(255, 111, 97);"></i>
+
+          <!-- Body -->
+          <div class="ms-6">
+
+            <!-- Heading -->
+            <h6 class="mb-1 heading-xxs">
+              Free returns
+            </h6>
+
+            <!-- Text -->
+            <p class="mb-0 fs-sm text-muted">
+              Return money within 30 days
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+
+        <!-- Item -->
+        <div class="d-flex mb-6 mb-md-0">
+
+          <!-- Icon -->
+          <i class="fa-solid fa-lock mt-2 pe-4" style=" color:rgb(255, 111, 97);"></i>
+
+          <!-- Body -->
+          <div class="ms-6">
+
+            <!-- Heading -->
+            <h6 class="mb-1 heading-xxs">
+              Secure shopping
+            </h6>
+
+            <!-- Text -->
+            <p class="mb-0 fs-sm text-muted">
+              You're in safe hands
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+
+        <!-- Item -->
+        <div class="d-flex">
+
+          <!-- Icon -->
+          <i class="fa-solid fa-tag mt-2 pe-4" style=" color:rgb(255, 111, 97);"></i>
+
+          <!-- Body -->
+          <div class="ms-6">
+
+            <!-- Heading -->
+            <h6 class="mb-1 heading-xxs">
+              Over 10,000 Styles
+            </h6>
+
+            <!-- Text -->
+            <p class="mb-0 fs-sm text-muted">
+              We have everything you need
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

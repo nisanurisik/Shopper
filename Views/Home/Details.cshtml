@@ -29,7 +29,7 @@
                                     class="text-decoration-none text-dark text-hover">Home</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="/category/list/@Model.Category?.Url"
+                                <a href="/category/list/@Model.Product.Category?.Url"
                                     class="text-decoration-none text-dark mx-3 text-hover">@Model.Product.Category?.Name</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
@@ -62,7 +62,7 @@
 
                     <div class="fs-xs">
                         <p class="card-text">
-                            @Model.Product.Price
+                            $@Model.Product.Price
                             @(Model.Product.Stok
                                 ? Html.Raw("<span class='text-success'>(In Stock)</span>")
                                 : Html.Raw("<span class='text-danger'>(Out Of Stock)</span>"))
@@ -117,6 +117,60 @@
             </div>
         </div>
 
+    </section>
+
+    <section>
+        <div class="container">
+            <h3 class="my-5 text-center">You might also like</h3>
+
+            <div class="tab-content mt-5">
+                <div class="tab-pane fade show active" id="topSellersTab">
+                    <div class="row">
+                        @foreach (var prd in Model.Products.Where(p => p.ProductId <= 4))
+                        {
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="card no-border" style="width: 250px;">
+                                    <img src="~/img/@prd.Image" class="card-img-top" alt="...">
+                                    <div class="text-conten p-5 mt-5">
+                                        <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal"
+                                            data-bs-target="#modalProduct">
+                                            <i class="fa-solid fa-eye icon-space"></i>
+                                        </button>
+                                        <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal"
+                                            data-bs-target="#modalProduct">
+                                            <i class="fa-solid fa-heart icon-space"></i>
+                                        </button>
+                                        <button class="btn btn-xs btn-circle btn-white-primary" data-bs-toggle="modal"
+                                            data-bs-target="#modalProduct">
+                                            <i class="fa-solid fa-cart-arrow-down icon-space"></i>
+                                        </button>
+                                    </div>
+                                    <div class="card-body px-0">
+                                        <div class="fs-xs">
+                                            <a class="text-muted text-decoration-none"
+                                                href="shop.html">@prd.Category?.Name</a>
+                                        </div>
+                                        <div class="fw-bold text">
+                                            <a href="/product/details/@prd.Url" class="text-decoration-none"
+                                                style="color: rgb(82, 82, 82);">
+
+                                                @prd.Name
+                                            </a>
+                                        </div>
+                                        <div class="fw-bold text-muted">
+                                            $@prd.Price
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </section>
 
     <section>
@@ -231,7 +285,7 @@
             </div>
         </div>
     </section>
-    <section class="bg-light py-5 mt-5" style="background-color: rgb(245, 245, 245) !important;">
+    <section class="bg-light py-5">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-3">
