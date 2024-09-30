@@ -13,5 +13,47 @@ namespace Shopper.Controllers
       };
       return View(model);
     }
+
+    public IActionResult Wishlist()
+    {
+      var model = new ProductViewModel
+      {
+        Products = Repository.Products,
+        Categories = Repository.Categories
+      };
+
+      return View(model);
+    }
+    public IActionResult PersonalInfo()
+    {
+      var model = new ProductViewModel
+      {
+        Products = Repository.Products,
+        Categories = Repository.Categories
+      };
+
+      return View(model);
+    }
+
+    public IActionResult Adresses()
+    {
+      var model = new ProductViewModel
+      {
+        Products = Repository.Products,
+        Categories = Repository.Categories
+      };
+
+      return View(model);
+    }
+    public IActionResult Payment()
+    {
+      var model = new ProductViewModel
+      {
+        Products = Repository.Products,
+        Categories = Repository.Categories
+      };
+
+      return View(model);
+    }
   }
 }

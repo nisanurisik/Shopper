@@ -1,0 +1,176 @@
+@model ProductViewModel
+<div class="container">
+  <h3 class="text-center my-5">My Account</h3>
+  <div class="row">
+    <div class="col-lg-3 my-5">
+      <vc:user-menu></vc:user-menu>
+    </div>
+    <div class="col-lg-9 my-5">
+      <div class="row">
+        <form>
+          <div class="row">
+            <div class="col-12 col-md-6">
+
+              <!-- Email -->
+              <div class="form-group my-3">
+                <label class="form-label" for="accountFirstName">
+                  First Name *
+                </label>
+                <input class="form-control form-control-sm rounded-0 py-3 ps-3" id="accountFirstName" type="text"
+                  placeholder="First Name *" value="Daniel" required="">
+              </div>
+
+            </div>
+            <div class="col-12 col-md-6">
+
+              <!-- Email -->
+              <div class="form-group my-3">
+                <label class="form-label" for="accountLastName">
+                  Last Name *
+                </label>
+                <input class="form-control form-control-sm rounded-0 py-3 ps-3" id="accountLastName" type="text"
+                  placeholder="Last Name *" value="Robinson" required="">
+              </div>
+
+            </div>
+            <div class="col-12">
+
+              <!-- Email -->
+              <div class="form-group my-3">
+                <label class="form-label" for="accountEmail">
+                  Email Address *
+                </label>
+                <input class="form-control form-control-sm rounded-0 py-3 ps-3" id="accountEmail" type="email"
+                  placeholder="Email Address *" value="user@email.com" required="">
+              </div>
+
+            </div>
+            <div class="col-12 col-md-6">
+
+              <!-- Password -->
+              <div class="form-group my-3">
+                <label class="form-label" for="accountPassword">
+                  Current Password *
+                </label>
+                <input class="form-control form-control-sm rounded-0 py-3 ps-3" id="accountPassword" type="password"
+                  placeholder="Current Password *" required="">
+              </div>
+
+            </div>
+            <div class="col-12 col-md-6">
+
+              <!-- Password -->
+              <div class="form-group my-3">
+                <label class="form-label" for="AccountNewPassword">
+                  New Password *
+                </label>
+                <input class="form-control form-control-sm rounded-0 py-3 ps-3" id="AccountNewPassword" type="password"
+                  placeholder="New Password *" required="">
+              </div>
+
+            </div>
+            <div class="col-12 col-lg-6">
+
+              <!-- Birthday -->
+              <div class="form-group my-3">
+
+                <!-- Label -->
+                <label class="form-label">Date of Birth</label>
+
+                <!-- Inputs -->
+                <div class="row gx-5">
+                  <div class="col-auto">
+
+                    <!-- Date -->
+                    <label class="visually-hidden" for="accountDate">
+                      Date
+                    </label>
+                    <select class="form-select form-select-sm py-3 ps-3" id="accountDate">
+                      <option>10</option>
+                      <option>11</option>
+                      <option selected="">12</option>
+                    </select>
+
+                  </div>
+                  <div class="col">
+
+                    <!-- Date -->
+                    <label class="visually-hidden" for="accountMonth">
+                      Month
+                    </label>
+                    <select class="form-select form-select-sm py-3 ps-3" id="accountMonth">
+                      <option>January</option>
+                      <option selected="">February</option>
+                      <option>March</option>
+                    </select>
+
+                  </div>
+                  <div class="col-auto">
+
+                    <!-- Date -->
+                    <label class="visually-hidden" for="accountYear">
+                      Year
+                    </label>
+                    <select class="form-select form-select-sm py-3 ps-3" id="accountYear">
+                      <option>1990</option>
+                      <option selected="">1991</option>
+                      <option>1992</option>
+                    </select>
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="col-12 col-lg-6">
+
+              <!-- Gender -->
+              <div class="form-group mb-8  my-3">
+
+                <!-- Label -->
+                <label class="form-label">Gender</label>
+
+                <!-- Inputs -->
+                <div>
+
+                  <!-- Male -->
+                  <input class="btn-check rounded-0" type="radio" name="gender" id="male" checked="">
+                  <label class="btn btn-sm btn-outline-border rounded-0 p-3" for="male">Male</label>
+
+                  <!-- Female -->
+                  <input class="btn-check rounded-0" type="radio" name="gender" id="female">
+                  <label class="btn btn-sm btn-outline-border rounded-0 p-3" for="female">Female</label>
+
+                </div>
+
+              </div>
+
+            </div>
+            <div class="col-12">
+
+              <!-- Button -->
+              <button class="btn btn-dark rounded-0  my-3" type="submit">Save Changes</button>
+
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .custom-link {
+    color: black;
+    /* Bağlantı metnini siyah yap */
+    text-decoration: none;
+    /* Altı çizili olmasın */
+  }
+
+  .custom-link:hover {
+    color: black;
+    /* Üzerine gelindiğinde de siyah kalsın */
+    text-decoration: none;
+    /* Üzerine gelindiğinde altı çizilmesin */
+  }
+</style>

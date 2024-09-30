@@ -1,0 +1,96 @@
+@model ProductViewModel
+
+<div class="container">
+  <h3 class="text-center my-5">My Account</h3>
+  <div class="row">
+    <div class="col-lg-3 my-5">
+
+      <vc:user-menu></vc:user-menu>
+    </div>
+    <div class="col-lg-9 my-5">
+      <div class="row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+          <div class="card bg-light no-border" style="height: 250px; width: 340px;">
+            <div class="card-body" style="font-size: 14px;">
+              <h6 class="card-title" style="font-weight: 500; font-size: 20px;">Shopping Address
+                <a class="btn btn-xs btn-circle btn-dark-primary" href="account-address-edit.html">
+                  <i class="fa-solid fa-pen fa-sm" style="color: #1f1f1f;"></i>
+                </a>
+                <a class="btn btn-xs btn-circle btn-white-primary" href="account-address-edit.html">
+                  <i class="fa-solid fa-x" style="color: #1f1f1f;"></i>
+                </a>
+
+              </h6>
+
+              <p class="card-text my-1 mt-3">Daniel Robinson</p>
+              <p class="card-text my-1">3997 Raccoon Run</p>
+              <p class="card-text my-1">Kingston</p>
+              <p class="card-text my-1">45644</p>
+              <p class="card-text my-1 ">United States</p>
+              <p class="card-text me-3">6146389574</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card bg-light no-border" style="height: 250px; width: 340px;">
+            <div class="card-body" style="font-size: 14px;">
+              <h6 class="card-title" style="font-weight: 500; font-size: 20px;">Billing Address
+                <a class="btn btn-xs btn-circle btn-dark-primary" href="account-address-edit.html">
+                  <i class="fa-solid fa-pen fa-sm" style="color: #1f1f1f;"></i>
+                </a>
+                <a class="btn btn-xs btn-circle btn-white-primary" href="account-address-edit.html">
+                  <i class="fa-solid fa-x" style="color: #1f1f1f;"></i>
+                </a>
+              </h6>
+
+              <p class="card-text my-1 mt-3">Daniel Robinson</p>
+              <p class="card-text my-1">3997 Raccoon Run</p>
+              <p class="card-text my-1">Kingston</p>
+              <p class="card-text my-1">45644</p>
+              <p class="card-text my-1 ">United States</p>
+              <p class="card-text me-3">6146389574</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-11">
+
+          <!-- Button -->
+          <a class="btn w-100 btn-lg btn-outline-border rounded-0 custom-bttn d-flex justify-content-center align-items-center"
+            style="font-size: 16px; font-weight: 500;" href="account-address-edit.html">
+            Add Address<i class="fa-solid fa-plus" style="color: #1f1f1f; font-weight: 600; padding-left: 8px;"></i>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .btn-outline-border {
+    border-color: rgb(229, 229, 229);
+    height: 60px;
+  }
+
+  .custom-bttn:hover {
+    background-color: transparent;
+    /* Arka plan rengini şeffaf bırak */
+    color: #1f1f1f;
+    /* Metin rengini değiştirme */
+    border-color: black;
+    /* Çerçeveyi siyah bırak */
+  }
+
+  .custom-link {
+    color: black;
+    /* Bağlantı metnini siyah yap */
+    text-decoration: none;
+    /* Altı çizili olmasın */
+  }
+
+  .custom-link:hover {
+    color: black;
+    /* Üzerine gelindiğinde de siyah kalsın */
+    text-decoration: none;
+    /* Üzerine gelindiğinde altı çizilmesin */
+  }
+</style>

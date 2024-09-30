@@ -279,6 +279,24 @@ body {
   transition-delay: .15s; /* Üçüncü butonun görünme gecikmesi */
 }
 
+.text-wish {
+  position: relative;
+  bottom: 38px;
+}
+
+.card:hover .text-wish {
+opacity: 1; /* Hover durumunda butonları görünür yap */
+}
+
+.text-wish button {
+opacity: 0; /* Butonları başlangıçta görünmez yap */
+transition: opacity 0.3s ease;
+}
+
+.card:hover .text-wish button {
+opacity: 1; /* Hover durumunda butonları görünür yap */
+box-shadow: none;
+}
 .text-body{
   font-size: 16px;
   font-weight: 500;
@@ -517,4 +535,16 @@ body {
     -moz-transform: translateX(-5px) scale(1.2);
     -ms-transform: translateX(-5px) scale(1.2);
     -o-transform: translateX(-5px) scale(1.2);
+}
+
+.ratio-item-text{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.form-group{
+  font-family: Jost*500 Medium;
+  
 }
